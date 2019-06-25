@@ -1,16 +1,22 @@
 from rest_framework import serializers
-from .models import List, Card
+from .models import Title, Card
 
-class ListOfListSerializer(serializers.ModelSerializer):
+class MainListSerializer(serializers.ModelSerializer):
     cards = serializers.StringRelatedField(many=True)
-    class Meta:
-        model = List
-        fields = ['id', 'name', 'cards']
 
-class ListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = List
-        fields = ['name']
+        model = Title
+        fields = ['id', 'title', 'cards']
+
+class TitleListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Title
+        fields = "__all__"
+
+class TitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Title
+        fields = ['title']
 
 class CardListSerializer(serializers.ModelSerializer):
     class Meta:

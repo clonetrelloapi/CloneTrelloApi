@@ -1,21 +1,29 @@
 from django.shortcuts import render
 from .serializers import *
-from .models import List, Card
+from .models import Title, Card
 from rest_framework import generics
 from rest_framework.renderers import JSONRenderer
 
-class ListOfListCreateView(generics.ListCreateAPIView):
+
+class MainListCreateView(generics.ListCreateAPIView):
     renderer_classes = [JSONRenderer]
-    queryset = List.objects.all()
-    serializer_class = ListOfListSerializer
+    queryset = Title.objects.all()
+    serializer_class = MainListSerializer
+
+
+class TitleListCreateView(generics.ListCreateAPIView):
+    renderer_classes = [JSONRenderer]
+    queryset = Title.objects.all()
+    serializer_class = TitleListSerializer
 
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
 
-class ListDetailView(generics.RetrieveUpdateDestroyAPIView):
+
+class TitleDetailView(generics.RetrieveUpdateDestroyAPIView):
     renderer_classes = [JSONRenderer]
-    queryset = List.objects.all()
-    serializer_class = ListSerializer
+    queryset = Title.objects.all()
+    serializer_class = TitleSerializer
 
 class CardListCreateView(generics.ListCreateAPIView):
     renderer_classes = [JSONRenderer]
