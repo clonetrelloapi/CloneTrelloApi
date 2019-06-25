@@ -1,12 +1,17 @@
 from django.contrib import admin
 from .models import *
 
-class ListOption(admin.ModelAdmin):
-    list_display = ['id', 'name']
+class TitleOption(admin.ModelAdmin):
+    list_display = ['id', 'title']
 
-admin.site.register(List, ListOption)
+admin.site.register(Title, TitleOption)
 
 class CardOption(admin.ModelAdmin):
-    list_display = ['id', 'list', 'title', 'create_date', 'update_date']
+    list_display = ['id', 'title', 'content','create_date', 'update_date']
 
 admin.site.register(Card, CardOption)
+
+class CommentOption(admin.ModelAdmin):
+    list_display = ['id', 'card', 'comment']
+
+admin.site.register(Comments, CommentOption)
