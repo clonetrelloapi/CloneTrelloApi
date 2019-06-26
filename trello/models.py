@@ -10,8 +10,8 @@ class Title(models.Model):
 class Card(models.Model):
     title = models.ForeignKey(Title, on_delete=models.CASCADE, related_name='cards')
     content = models.CharField(max_length=100)
-    create_date = models.DateTimeField(auto_now=True)
-    update_date = models.DateTimeField(auto_now=True)
+    create_date = models.DateField(auto_now_add=True)
+    update_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.content
