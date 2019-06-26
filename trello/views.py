@@ -5,7 +5,7 @@ from rest_framework import generics
 from rest_framework.renderers import JSONRenderer
 
 
-class MainListCreateView(generics.ListCreateAPIView):
+class MainListView(generics.ListAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Title.objects.all()
     serializer_class = MainListSerializer
