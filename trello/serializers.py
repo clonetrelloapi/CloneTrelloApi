@@ -9,7 +9,7 @@ class TitleListSerializer(serializers.ModelSerializer):
 class TitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Title
-        fields = ['title', 'listSort']
+        fields = ['title', 'listSort', 'background_color']
 
 class CommentsListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,7 +26,7 @@ class CardListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ['cardTitle', 'description', 'comments', 'CardSort']
+        fields = ['cardTitle', 'description', 'comments', 'cardSort']
 
 class CardSerializer(serializers.ModelSerializer):
     comments = CommentsListSerializer(many=True, read_only=True)
@@ -41,4 +41,4 @@ class MainListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Title
-        fields = ['id', 'title', 'cards']
+        fields = ['id', 'title' ,'listSort', 'background_color', 'cards']

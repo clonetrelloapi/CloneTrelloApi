@@ -4,6 +4,7 @@ from sort_order_field import SortOrderField
 
 class Title(models.Model):
     title = models.CharField(max_length=50)
+    background_color = models.TextField(null=True)
     listSort = SortOrderField()
 
     def __str__(self):
