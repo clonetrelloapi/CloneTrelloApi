@@ -26,10 +26,10 @@ class CardListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ['cardTitle', 'description', 'comments', 'cardSort']
+        fields = ['title', 'cardTitle', 'description', 'comments', 'cardSort']
 
 class CardSerializer(serializers.ModelSerializer):
-    comments = CommentsListSerializer(many=True, read_only=True)
+    comments = CommentsListSerializer(many=True)
 
     class Meta:
         model = Card

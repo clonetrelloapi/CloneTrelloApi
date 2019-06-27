@@ -32,8 +32,8 @@ class CardListCreateView(generics.ListCreateAPIView):
     queryset = Card.objects.all()
     serializer_class = CardListSerializer
 
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     return super().create(request, *args, **kwargs)
 
 class CardDetailView(generics.RetrieveUpdateDestroyAPIView):
     renderer_classes = [JSONRenderer]
