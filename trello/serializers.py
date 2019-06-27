@@ -9,7 +9,7 @@ class TitleListSerializer(serializers.ModelSerializer):
 class TitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Title
-        fields = ['title']
+        fields = ['title', 'listSort']
 
 class CommentsListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,7 +26,7 @@ class CardListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ['cardTitle', 'description', 'comments']
+        fields = ['cardTitle', 'description', 'comments', 'CardSort']
 
 class CardSerializer(serializers.ModelSerializer):
     comments = CommentsListSerializer(many=True, read_only=True)
