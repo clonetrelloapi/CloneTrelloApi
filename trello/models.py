@@ -9,7 +9,8 @@ class Title(models.Model):
 
 class Card(models.Model):
     title = models.ForeignKey(Title, on_delete=models.CASCADE, related_name='cards')
-    content = models.CharField(max_length=100)
+    cardTitle = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
     create_date = models.DateField(auto_now_add=True)
     update_date = models.DateField(auto_now=True)
 
@@ -21,7 +22,7 @@ class Card(models.Model):
 
 class Comments(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='comments')
-    comment = models.CharField(max_length=100)
+    comment = models.TextField()
 
     def __str__(self):
         return self.comment

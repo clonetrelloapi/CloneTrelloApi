@@ -7,7 +7,7 @@ class TitleOption(admin.ModelAdmin):
 admin.site.register(Title, TitleOption)
 
 class CardOption(admin.ModelAdmin):
-    list_display = ['id', 'title', 'content','create_date', 'update_date']
+    list_display = ['id', 'title', 'cardTitle','create_date', 'update_date']
 
 admin.site.register(Card, CardOption)
 
