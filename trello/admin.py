@@ -2,12 +2,12 @@ from django.contrib import admin
 from .models import *
 
 class TitleOption(admin.ModelAdmin):
-    list_display = ['id', 'title']
+    list_display = ['listSort', 'id', 'title']
 
 admin.site.register(Title, TitleOption)
 
 class CardOption(admin.ModelAdmin):
-    list_display = ['id', 'title', 'cardTitle','create_date', 'update_date']
+    list_display = ['cardSort', 'id', 'title', 'cardTitle','create_date', 'update_date']
 
 admin.site.register(Card, CardOption)
 
