@@ -29,7 +29,7 @@ class TitleDetailView(generics.RetrieveUpdateDestroyAPIView):
 class CardListCreateView(generics.ListCreateAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Card.objects.all()
-    serializer_class = MainListSerializer
+    serializer_class = CardListSerializer
 
     # def create(self, request, *args, **kwargs):
     #     return super().create(request, *args, **kwargs)
