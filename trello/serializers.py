@@ -35,7 +35,7 @@ class CardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ['cardTitle', 'description', 'comments', 'cardSort']
+        fields = ['title', 'cardTitle', 'description', 'comments', 'cardSort']
 
 
 class BackgroundcolorSerializer(serializers.ModelSerializer):
