@@ -35,7 +35,7 @@ class CardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ['description', 'comments']
+        fields = ['cardTitle', 'description', 'comments', 'cardSort']
 
 
 class BackgroundcolorSerializer(serializers.ModelSerializer):
@@ -51,4 +51,4 @@ class MainListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Title
-        fields = ['id', 'title' ,'listSort', 'cards']
+        fields = ['id', 'title', 'listSort', 'cards']

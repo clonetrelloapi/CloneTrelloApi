@@ -34,6 +34,10 @@ class CardListCreateView(generics.ListCreateAPIView):
     # def create(self, request, *args, **kwargs):
     #     return super().create(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        self.create(request, *args, **kwargs)
+        return self.list(request, *args, **kwargs)
+
 class CardDetailView(generics.RetrieveUpdateDestroyAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Card.objects.all()

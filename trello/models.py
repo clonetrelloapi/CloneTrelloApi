@@ -22,13 +22,13 @@ class Card(models.Model):
     cardSort = SortOrderField()
 
     def __str__(self):
-        return self.content
+        return self.cardTitle
 
     class Meta:
         ordering = ['cardSort']
 
 class Comments(models.Model):
-    card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='comments')
+    card = models.ForeignKey(Card, on_delete=models.CASCADE, null=True, related_name='comments')
     comment = models.TextField()
 
     def __str__(self):
