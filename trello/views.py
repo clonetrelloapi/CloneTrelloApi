@@ -10,7 +10,6 @@ class MainListView(generics.ListAPIView):
     queryset = Title.objects.all()
     serializer_class = MainListSerializer
 
-
 class TitleListCreateView(generics.ListCreateAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Title.objects.all()

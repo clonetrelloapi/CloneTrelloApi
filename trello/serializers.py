@@ -27,6 +27,8 @@ class CardListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = ['title', 'cardTitle', 'description', 'comments', 'cardSort']
+        read_only_fields = ['description']
+
 
 class CardSerializer(serializers.ModelSerializer):
     comments = CommentsListSerializer(many=True)
