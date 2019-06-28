@@ -12,4 +12,6 @@ urlpatterns = [
 
     path('comments/', CommentsListCreateView.as_view()),
     path('comments/<int:pk>/', CommentsDetailView.as_view()),
+
+    path('backgroundcolors/<int:pk>', BackgroundcolorDetailView.as_view()),
 ]

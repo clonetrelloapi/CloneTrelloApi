@@ -29,7 +29,7 @@ class TitleDetailView(generics.RetrieveUpdateDestroyAPIView):
 class CardListCreateView(generics.ListCreateAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Card.objects.all()
-    serializer_class = CardListSerializer
+    serializer_class = MainListSerializer
 
     # def create(self, request, *args, **kwargs):
     #     return super().create(request, *args, **kwargs)
@@ -48,3 +48,10 @@ class CommentsDetailView(generics.RetrieveUpdateDestroyAPIView):
     renderer_classes = [JSONRenderer]
     queryset = Comments.objects.all()
     serializer_class = CommentsSerializer
+
+
+class BackgroundcolorDetailView(generics.RetrieveUpdateAPIView):
+    renderer_classes = [JSONRenderer]
+    queryset = Backgroundcolor.objects.all()
+    serializer_class = BackgroundcolorSerializer
+

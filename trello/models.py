@@ -4,7 +4,6 @@ from sort_order_field import SortOrderField
 
 class Title(models.Model):
     title = models.CharField(max_length=50)
-    background_color = models.TextField(null=True)
     listSort = SortOrderField()
 
     def __str__(self):
@@ -34,3 +33,10 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment
+
+
+class Backgroundcolor(models.Model):
+    background_color = models.TextField(null=True)
+
+    def __str__(self):
+        return self.background_color

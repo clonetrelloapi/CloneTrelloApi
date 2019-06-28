@@ -15,3 +15,5 @@ class CommentOption(admin.ModelAdmin):
     list_display = ['id', 'card', 'comment']
 
 admin.site.register(Comments, CommentOption)
+
+admin.site.register(Backgroundcolor)
