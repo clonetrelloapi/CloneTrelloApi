@@ -1,23 +1,54 @@
 from rest_framework import serializers
-from .models import List, Card
+from .models import Title, Card, Comments, Backgroundcolor
 
-class ListOfListSerializer(serializers.ModelSerializer):
-    cards = serializers.StringRelatedField(many=True)
+class TitleListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = List
-        fields = ['id', 'name', 'cards']
+        model = Title
+        fields = "__all__"
 
-class ListSerializer(serializers.ModelSerializer):
+class TitleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = List
-        fields = ['name']
+        model = Title
+        fields = ['title', 'listSort']
 
-class CardListSerializer(serializers.ModelSerializer):
+class CommentsListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Card
+        model = Comments
         fields = '__all__'
 
-class CardSerializer(serializers.ModelSerializer):
+class CommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comments
+        fields = ['comment']
+
+class CardListSerializer(serializers.ModelSerializer):
+    comments = CommentsListSerializer(many=True, read_only=True)
+
     class Meta:
         model = Card
-        fields = ['title']
+        fields = ['title', 'id', 'cardTitle', 'description', 'comments', 'cardSort']
+        read_only_fields = ['description']
+
+
+class CardSerializer(serializers.ModelSerializer):
+    comments = CommentsListSerializer(many=True)
+
+    class Meta:
+        model = Card
+        fields = ['title', 'cardTitle', 'description', 'comments', 'cardSort']
+
+
+class BackgroundcolorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Backgroundcolor
+        fields = "__all__"
+
+
+class MainListSerializer(serializers.ModelSerializer):
+    # cards = serializers.StringRelatedField(many=True)
+    cards = CardListSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Title
+        fields = ['id', 'title', 'listSort', 'cards']

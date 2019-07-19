@@ -22,7 +22,7 @@ schema_view = get_swagger_view(title='Clone Trello API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('trello/', include('trello.urls')),
+    path('', include('trello.urls')),
     path('api/doc/', schema_view),
 ]
 
