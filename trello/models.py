@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from sort_order_field import SortOrderField
 
+
+# trello list
 class Title(models.Model):
     title = models.CharField(max_length=50)
     listSort = SortOrderField()
@@ -13,6 +15,7 @@ class Title(models.Model):
         ordering = ['listSort']
 
 
+# trello card
 class Card(models.Model):
     title = models.ForeignKey(Title, on_delete=models.CASCADE, related_name='cards')
     cardTitle = models.CharField(max_length=100)
@@ -27,6 +30,8 @@ class Card(models.Model):
     class Meta:
         ordering = ['cardSort']
 
+
+# trello card - comment
 class Comments(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE, null=True, related_name='comments')
     comment = models.TextField()
@@ -35,6 +40,7 @@ class Comments(models.Model):
         return self.comment
 
 
+# trello backgroundcolor
 class Backgroundcolor(models.Model):
     background_color = models.TextField(null=True)
 
